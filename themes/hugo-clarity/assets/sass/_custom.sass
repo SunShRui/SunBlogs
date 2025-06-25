@@ -1,0 +1,31 @@
+// add customs styles and general overrides here
+// due to the cascading nature of css, if you try to override theme css variables in this file, those changes will not apply. Instead, override css variables in the `override.sass` file
+// we recommend not editing this file directly. Instead, create an `assets/sass/_custom.sass` file at the root level of your site.
+// if you edit this file directly, you will have to resolve git conflicts when and if you decide to pull changes we make on the theme
+
+.logo
+  width: 50px
+  height: 50px
+.tag-container
+  display: flex
+  flex-wrap: wrap
+  gap: 8px /* 控制标签之间的间距 */
+
+
+.tag 
+  display: inline-block
+  padding: 4px 12px
+  background-color: #e0f7fa /* 默认背景色（类似 Tailwind 的 bg-blue-100） */
+  color: #0277bd /* 文字颜色（类似 Tailwind 的 text-blue-700） */
+  font-size: 0.875em /* 基础字体大小，配合内联样式动态调整 */
+  border-radius: 9999px /* 圆角全圆（类似 rounded-full） */
+  text-decoration: none
+  transition: background-color 0.2s ease
+
+
+.tag:hover
+  background-color: #b3e5fc /* 悬停时变浅蓝（类似 hover:bg-blue-200） */
+
+
+.tag:active
+  background-color: #81d4fa /* 点击时更深的蓝色 */

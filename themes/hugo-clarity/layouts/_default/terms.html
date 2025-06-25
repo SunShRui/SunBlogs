@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="relative min-h-screen" style=" display: flex; margin-top: 80px;">
+    <!-- 主体内容 -->
+    <div style="display: flex;flex-direction: column; align-items: center;   flex: 2;">
+        <div style="font-size: 40px;color: #101010;">文章标签</div>
+        <div style="height: 2px; width: 50px;background-color: #101010;margin-bottom: 30px;"></div>
+        <div class="tag-container">
+            {{ range .Data.Terms.ByCount }}
+            <a href="{{ .Page.Permalink }}" class="tag" style="font-size: {{ add 0.8 (mul .Count 0.1) }}em;">
+                {{ .Name }} ({{ .Count }})
+            </a>
+            {{ end }}
+        </div>
+    </div>
+
+    <!-- 固定位置的 sidebar -->
+    <aside style="flex: 1;">
+        {{ partial "sidebar" . }}
+    </aside>
+</div>
+{{ end }}

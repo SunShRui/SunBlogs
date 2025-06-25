@@ -1,0 +1,93 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = '回忆录'
+theme = "hugo-clarity"
+pagerSize = 10
+enableRobotsTXT = true
+
+# 开启 RSS、Sitemap
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+# 作者信息
+[params]
+  author = "小小豆福"
+  description = "好看的博客千篇一律，有趣的博客万里挑一"
+  # favicon = "favicon.ico"               # 静态资源路径：static/favicon.ico
+  logo = "icon/logo.png"                 # 可选
+  centerLogo = "icon/logo.png"                 # 可选
+  dateFormat = "2006-01-02"             # 日期格式
+  enableReadingTime = true             # 显示阅读时间
+  showLastUpdated = true               # 显示更新时间
+  showBreadcrumbs = true               # 显示路径导航
+
+  # 首页控制
+  [params.homepage]
+    showRecent = true
+    recentLimit = 5
+
+  # 评论系统：可删掉如果你不用评论
+  [params.comments]
+    enabled = false
+    provider = "giscus"
+    giscus.repo = "yourname/yourrepo"
+    giscus.repoID = "your-repo-id"
+    giscus.category = "General"
+    giscus.categoryID = "your-category-id"
+    giscus.mapping = "pathname"
+    giscus.reactionsEnabled = "1"
+    giscus.emitMetadata = "0"
+    giscus.theme = "light"
+
+  # 社交媒体（Clarity 支持图标展示）
+  [params.social]
+    github = "https://github.com/yourname"
+#    twitter = "https://twitter.com/yourhandle"
+#    linkedin = "https://www.linkedin.com/in/yourname/"
+    email = "sunshrui@outlook.com"
+
+  # 页脚版权信息
+  [params.footer]
+    copyright = "© 2025 Your Name"
+#tags
+[taxonomies]
+  tag = "tags"
+# 主菜单（导航）
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "首页"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "posts"
+    name = "文章"
+    url = "/posts/"
+    weight = 2
+
+  [[menu.main]]
+    identifier = "tags"
+    name = "标签"
+    url = "/tags/"
+    weight = 3
+
+
+
+# 多语言支持（中文为默认）
+[languages]
+  [languages.zh]
+    languageName = "中文"
+    weight = 1
+    title = "我的博客"
+    description = "记录与分享"
+
+# Markdown 渲染配置（使用 Goldmark）
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true     # 允许 HTML 渲染（如 <iframe>）
+  
+  [markup.highlight]
+    noClasses = false   # 保留 class，方便主题样式使用
+    style = "monokai"   # 可改为 github, dracula, etc.

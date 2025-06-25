@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>我的博客</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on 我的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 24 Jun 2025 10:09:56 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>起始</title>
+      <link>http://localhost:1313/blog/%E8%B5%B7%E5%A7%8B/</link>
+      <pubDate>Tue, 24 Jun 2025 10:09:56 +0800</pubDate>
+      
+      <guid>http://localhost:1313/blog/%E8%B5%B7%E5%A7%8B/</guid>
+      <description>
+        
+          
+            &lt;h2 id=&#34;一直想写个属于自己的东西这个想法由来已久每次到了动手的时候因为各种的小事而终止中间也想搞过很多专门写作的软件像ommwrite语雀印象笔记zotero其中最喜欢的还是ommwrite-这个是用于专门创作的打开之后会全屏展示并提供轻缓舒适的音乐让人能够静下心来创作&#34;&gt;一直想写个属于自己的东西，这个想法由来已久，每次到了动手的时候因为各种的小事而终止，中间也想搞过很多专门写作的软件，像OmmWrite、语雀、印象笔记、Zotero。其中最喜欢的还是OmmWrite ,这个是用于专门创作的，打开之后会全屏展示，并提供轻缓舒适的音乐，让人能够静下心来创作。&lt;/h2&gt;
+          
+          
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>
