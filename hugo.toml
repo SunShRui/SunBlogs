@@ -59,7 +59,7 @@ enableRobotsTXT = true
   [[menu.main]]
     identifier = "home"
     name = "首页"
-    url = ""
+    url = "blog/"
     weight = 1
 
   [[menu.main]]
