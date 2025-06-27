@@ -1,6 +1,6 @@
-baseURL = "https://sunshrui.github.io/SunBlogs/"
+baseURL = "https://sunshrui.github.io/"
 canonifyURLs = true
-relativeURLs = true
+relativeURLs = false
 languageCode = 'en-us'
 title = '回忆录'
 theme = "hugo-clarity"
