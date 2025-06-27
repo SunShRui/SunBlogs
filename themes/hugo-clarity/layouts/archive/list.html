@@ -1,0 +1,78 @@
+{{ define "main" }}
+<main class="archive-page">
+    <h1 >文章归档</h1>
+
+<!--    {{ $posts := where .Site.RegularPages "Type" "in" site.Params.mainSections }}-->
+
+    {{ $posts := where .Site.RegularPages "Section" "posts" }}
+    {{ $posts = sort $posts "Date" "desc" }}
+    <div class="archive-container space-y-8">
+        {{ range .Pages.GroupByDate "2006" }}
+        <details class="year-group bg-white rounded-lg shadow-lg mb-6">
+            <summary class="text-3xl font-semibold cursor-pointer p-4">
+                {{ .Key }} <span class="text-gray-400 text-base">({{ len .Pages }} posts)</span>
+            </summary>
+            <div class="pl-4 mt-2">
+                {{ range .Pages.GroupByDate "2006-01" }}
+                {{ $monthName := time (print .Key "-01") | time.Format "January" }}
+                <details class="month-group bg-gray-100 p-4 rounded-lg mb-4">
+                    <summary class="text-xl cursor-pointer">
+                        {{ $monthName }}
+                        <span class="text-gray-500 text-sm">({{ len .Pages }} posts)</span>
+                    </summary>
+                    <ul class="pl-6 mt-2 space-y-2">
+                        {{ range .Pages.ByDate.Reverse }}
+                        <li class="py-1">
+                            <span class="text-gray-500">{{ .Date.Format "Jan 02" }}</span>
+                            <a href="{{ .RelPermalink }}" class="text-blue-600 hover:underline ml-2">{{ .Title }}</a>
+                        </li>
+                        {{ end }}
+                    </ul>
+                </details>
+                {{ end }}
+            </div>
+        </details>
+        {{ end }}
+    </div>
+
+    <style>
+        details summary {
+            list-style: none;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        details summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details summary::after {
+            content: "▶";
+            float: right;
+            font-size: 1rem;
+            color: #888;
+            transition: transform 0.3s ease;
+        }
+
+        details[open] summary::after {
+            content: "▼";
+            transform: rotate(180deg);
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll("details summary").forEach((summary) => {
+                summary.addEventListener("click", (e) => {
+                    const details = summary.parentNode;
+                    if (details.hasAttribute("open")) {
+                        details.removeAttribute("open");
+                    } else {
+                        details.setAttribute("open", true);
+                    }
+                });
+            });
+        });
+    </script>
+</main>
+{{ end }}

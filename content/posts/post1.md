@@ -3,7 +3,9 @@ title: "Hugo 中使用标签"
 date: 2025-06-23
 tags: ["Hugo", "Clarity", "标签"]
 description: "学习如何在 Hugo 博客中添加和使用标签"
+categories: ["Hugo"]
 draft: false
+layout: "archive"
 ---
 
 

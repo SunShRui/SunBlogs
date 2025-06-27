@@ -51,28 +51,42 @@ enableRobotsTXT = true
   # 页脚版权信息
   [params.footer]
     copyright = "© 2025 Your Name"
+
+  # 搜索功能
+  [params.search]
+    enabled = true
+#归档
+  [permalinks]
+    post = "/:year/:month/:day/:slug/"
 #tags
-[taxonomies]
+  [taxonomies]
+  category = "categories"
   tag = "tags"
 # 主菜单（导航）
 [menu]
   [[menu.main]]
-    identifier = "home"
-    name = "首页"
-    url = "blog/"
+    identifier = "archive"
+    name = "归档"
+    url = "archive/"
     weight = 1
+
+  [[menu.main]]
+    identifier = "categories"
+    name = "分类"
+    url = "categories/"
+    weight = 2
 
   [[menu.main]]
     identifier = "posts"
     name = "文章"
     url = "posts/"
-    weight = 2
+    weight = 3
 
   [[menu.main]]
     identifier = "tags"
     name = "标签"
     url = "tags/"
-    weight = 3
+    weight = 4
 
 
 
@@ -89,7 +103,7 @@ enableRobotsTXT = true
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true     # 允许 HTML 渲染（如 <iframe>）
-  
+
   [markup.highlight]
     noClasses = false   # 保留 class，方便主题样式使用
     style = "monokai"   # 可改为 github, dracula, etc.
