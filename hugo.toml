@@ -26,7 +26,7 @@ enableRobotsTXT = true
   # 首页控制
   [params.homepage]
     showRecent = true
-    recentLimit = 10
+    recentLimit = 5
 
   # 评论系统：可删掉如果你不用评论
   [params.comments]
@@ -55,6 +55,9 @@ enableRobotsTXT = true
   # 搜索功能
   [params.search]
     enabled = true
+#归档
+  [permalinks]
+    post = "/:year/:month/:day/:slug/"
 #tags
   [taxonomies]
   category = "categories"
