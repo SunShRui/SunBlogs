@@ -1,30 +1,30 @@
 {{ define "main" }}
-<main class="archive-page">
-    <h1 >文章归档</h1>
-
-<!--    {{ $posts := where .Site.RegularPages "Type" "in" site.Params.mainSections }}-->
-
-    {{ $posts := where .Site.RegularPages "Section" "posts" }}
-    {{ $posts = sort $posts "Date" "desc" }}
-    <div class="archive-container space-y-8">
-        {{ range .Pages.GroupByDate "2006" }}
-        <details class="year-group bg-white rounded-lg shadow-lg mb-6">
-            <summary class="text-3xl font-semibold cursor-pointer p-4">
-                {{ .Key }} <span class="text-gray-400 text-base">({{ len .Pages }} posts)</span>
+<main class="archive-page" style="margin: 0 auto; padding: 30px;">
+    <h1 style="font-size: 3rem; font-weight: bold; text-align: center; margin-bottom: 30px;">文章归档</h1>
+    {{ $Pages := where .Site.RegularPages "Section" "post" }}
+    {{ $currentYear := now.Format "2006" }}
+    <div class="archive-container" style="display: flex; flex-direction: column; gap: 30px;">
+        {{ range $year, $yearPages := $Pages.GroupByDate "2006" }}
+        <details open class="year-group"
+                 style="background-color: white; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); padding: 10px;">
+            <summary style="font-size: 1.8rem; font-weight: bold; cursor: pointer; padding: 10px;">
+                {{ .Key }} <span style="color: #888; font-size: 1rem;">({{ len .Pages }} posts)</span>
             </summary>
-            <div class="pl-4 mt-2">
-                {{ range .Pages.GroupByDate "2006-01" }}
+            <div style="padding-left: 20px; margin-top: 10px;">
+                {{ range $yearPages.GroupByDate "2006-01" }}
                 {{ $monthName := time (print .Key "-01") | time.Format "January" }}
-                <details class="month-group bg-gray-100 p-4 rounded-lg mb-4">
-                    <summary class="text-xl cursor-pointer">
+                <details open class="month-group"
+                         style="background-color: #f7f7f7; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+                    <summary style="font-size: 1.2rem; cursor: pointer;">
                         {{ $monthName }}
-                        <span class="text-gray-500 text-sm">({{ len .Pages }} posts)</span>
+                        <span style="color: #888; font-size: 0.9rem;">({{ len .Pages }} posts)</span>
                     </summary>
-                    <ul class="pl-6 mt-2 space-y-2">
+                    <ul style="padding-left: 30px; margin-top: 10px;">
                         {{ range .Pages.ByDate.Reverse }}
-                        <li class="py-1">
-                            <span class="text-gray-500">{{ .Date.Format "Jan 02" }}</span>
-                            <a href="{{ .RelPermalink }}" class="text-blue-600 hover:underline ml-2">{{ .Title }}</a>
+                        <li style="padding-bottom: 10px;">
+                            <span style="color: #888;">{{ .Date.Format "Jan 02" }}</span>
+                            <a href="{{ .RelPermalink }}"
+                               style="color: #0066cc; text-decoration: none; margin-left: 10px;">{{ .Title }}</a>
                         </li>
                         {{ end }}
                     </ul>
@@ -61,18 +61,6 @@
     </style>
 
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            document.querySelectorAll("details summary").forEach((summary) => {
-                summary.addEventListener("click", (e) => {
-                    const details = summary.parentNode;
-                    if (details.hasAttribute("open")) {
-                        details.removeAttribute("open");
-                    } else {
-                        details.setAttribute("open", true);
-                    }
-                });
-            });
-        });
     </script>
 </main>
 {{ end }}

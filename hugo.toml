@@ -1,4 +1,4 @@
-baseURL = "https://sunshrui.github.io/"
+baseURL = "https://sunshrui.github.io/SunBlogs"
 canonifyURLs = true
 relativeURLs = false
 languageCode = 'en-us'
@@ -6,13 +6,13 @@ title = '回忆录'
 theme = "hugo-clarity"
 pagerSize = 10
 enableRobotsTXT = true
-
 # 开启 RSS、Sitemap
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 
 # 作者信息
 [params]
+  mainSections = ["post"]
   author = "小小豆福"
   description = "好看的博客千篇一律，有趣的博客万里挑一"
   # favicon = "favicon.ico"               # 静态资源路径：static/favicon.ico
@@ -22,7 +22,6 @@ enableRobotsTXT = true
   enableReadingTime = true             # 显示阅读时间
   showLastUpdated = true               # 显示更新时间
   showBreadcrumbs = true               # 显示路径导航
-
   # 首页控制
   [params.homepage]
     showRecent = true
@@ -77,9 +76,9 @@ enableRobotsTXT = true
     weight = 2
 
   [[menu.main]]
-    identifier = "posts"
+    identifier = "post"
     name = "文章"
-    url = "posts/"
+    url = "post/"
     weight = 3
 
   [[menu.main]]

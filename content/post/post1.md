@@ -6,6 +6,7 @@ description: "学习如何在 Hugo 博客中添加和使用标签"
 categories: ["Hugo"]
 draft: false
 layout: "archive"
+Section: "post"
 ---
 
 
